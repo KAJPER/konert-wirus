@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zdalne sterowanie</title>
+</head>
+<body>
+    <input type="text" id="url" placeholder="Wpisz URL">
+    <button onclick="sendCommand()">Otwórz stronę</button>
+    
+    <script>
+    function sendCommand() {
+        const url = document.getElementById('url').value;
+        fetch('set_command.php', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({url: url})
+        });
+    }
+    </script>
+</body>
+</html> 
